@@ -7,8 +7,7 @@ import classes from './HeaderCartButton.module.css';
 
 const HeaderCartButton = ({onModalShow}) => {
 
-    const cartItem = useContext(CartContext);
-    console.log('HeaderCartButton', cartItem);
+    const ctx = useContext(CartContext);
 
     return(
         <button onClick={onModalShow} className={classes.button}>
@@ -16,7 +15,7 @@ const HeaderCartButton = ({onModalShow}) => {
                 <CartIcon />
             </span>
             <span>Your Cart</span>
-            <span className={ classes.badge }>{ cartItem.totalAmount }</span>
+            <span className={ classes.badge }>{ ctx.totalAmount }</span>
         </button>
     )
 }
