@@ -30,6 +30,30 @@ const CartProvider = props => {
             }
             
         }
+        if(action.type === 'REMOVE') {
+            const cartItems = [...state.items];
+            let updatedItems;
+            
+            const selectedCartItemIndex = cartItems.findIndex(item => item.id === action.id);
+            const cartItem = cartItems[selectedCartItemIndex];
+            
+            // price updated
+            const updatedTotalAmount = Number(state.totalAmount) - cartItem.price;
+
+            console.log('cartItem', cartItem);
+            if(cartItem.amount === 1) {
+                updatedItems = cartItems.filter(item => item.id !== action.id);
+            }else {
+                const updateItem = {...cartItem, amount: cartItem.amount - 1}
+                cartItems[selectedCartItemIndex] = updateItem; // override
+                updatedItems = cartItems;
+            }
+
+            return {
+                items: updatedItems,
+                totalAmount: updatedTotalAmount.toFixed(2)  
+            }
+        }
         return defaultCartState
     }
 
