@@ -19,7 +19,7 @@
 .env.production.local
 
 #another projects
-/01-starting-project
+/01-starting-project/node_modules
 
 npm-debug.log*
 yarn-debug.log*

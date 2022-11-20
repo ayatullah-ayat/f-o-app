@@ -51,6 +51,11 @@ body {
   border-color: #240370;
   background-color: #e0d4fd;
 }
+.form-control input.blur {
+  outline: none;
+  border-color: red;
+  background-color: blueviolet;
+}
 
 .control-group {
   display: flex;
